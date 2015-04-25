@@ -1,2 +1,2 @@
 require 'pry'
-require 'WatchaSay'
+require 'watcha_say'
