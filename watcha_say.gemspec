@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["justindomingue"]
   spec.email         = ["justin.domingue@hotmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Question classifier gem that determines the type of question and the type of answer"
+  spec.homepage      = "https://github.com/justindomingue/watcha_say"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -29,4 +28,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec-nc"
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-remote"
+  spec.add_development_dependency "pry-nav"
 end
