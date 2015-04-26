@@ -37,11 +37,23 @@ class WatchaSay::BaseClassifier
 
   # Returns the number of times a word appears in a type
   def word_count(word, type)
-    return @words[word][type] || 0.0
+    return 0.0 unless @words[word] && @words[word][type]
+    return @words[word][type]
   end
 
   # Returns the number of words in a type
   def total_word_count_in_type(type)
+    @types[type] ? @types[type].to_f : 0.0
+  end
+
+  # Returns de number of times `word` appears in all types
+  def total_word_count(word)
+    return 0 unless @words[word]
+    @words[word].values.reduce(:+)
+  end
+
+  # Returns the number of trained set elements for type `type`
+  def type_count(type)
     @types[type] ? @types[type].to_f : 0.0
   end
 
@@ -50,17 +62,22 @@ class WatchaSay::BaseClassifier
     @training_count
   end
 
-  # Returns the type with the highest probability
+  # Returns the names of the types
+  def type_names
+    return @types.keys
+  end
+
+  # Returns the type with the highest probability for `question`
   def classify(question)
     max_prob = 0.0
     best = nil
 
-    scores = cat_scores question
+    scores = type_scores question
     scores.each do |s|
-      cat, prob = score
+      type, prob = score
       if prob > max_prob
         max_prob = prob
-        best = cat
+        best = type
       end
     end
 
@@ -85,7 +102,8 @@ class WatchaSay::BaseClassifier
 
   # Removes common English words
   def remove_common_words(input)
-    common = %w(the be and of a in to have it)
+    # TODO experiment
+    common = %w(the be and of a in to for it)
     return input.gsub(/\b(?:#{ Regexp.union(common).source  })\b/, '').squeeze(' ').strip
   end
 end
