@@ -33,6 +33,13 @@ class WatchaSay::BaseClassifier
     @training_count += 1
   end
 
+  def train_from_training_set(file='tmp/training_set.txt')
+    File.open(file, "r").each_line do |line|
+      data = line.split " ", 2
+      train(data[0], data[1])
+    end
+  end
+
   # CLASSIFIER
 
   # Returns the number of times a word appears in a type
@@ -73,7 +80,7 @@ class WatchaSay::BaseClassifier
     best = nil
 
     scores = type_scores question
-    scores.each do |s|
+    scores.each do |score|
       type, prob = score
       if prob > max_prob
         max_prob = prob
