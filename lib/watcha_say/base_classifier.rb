@@ -40,6 +40,20 @@ class WatchaSay::BaseClassifier
     end
   end
 
+  def benchmark(file='tmp/test_set.txt')
+    total = 0.0
+    success = 0.0
+
+    File.open(file, "r").each_line do |line|
+      data = line.split " ", 2
+      guess = classify(data[1])
+      total += 1.0
+      success += 1.0 if guess == data[0]
+    end
+
+    p "Accuracy: %.2f" % (success/total * 100)
+  end
+
   # CLASSIFIER
 
   # Returns the number of times a word appears in a type
