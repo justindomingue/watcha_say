@@ -5,6 +5,8 @@ Question classifier gem that determines the type of question and the type of ans
 Classifier | Feature | Accuracy
 ---------- | ------- | ---------|
 Naives Bayes | Unigram | 61.40% (**Very poor**)
+Support Vector Machines (SVM) | ?| *wip*
+Maximum Entropy Models | ? | ?
 
 ## Installation
 
