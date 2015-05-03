@@ -8,3 +8,10 @@ RSpec::Core::RakeTask.new(:spec) do |task|
 end
 
 task :default => :spec
+
+task :console do
+  exec "pry -r watcha_say -I ./lib"
+end
+
+task :c => :console
+

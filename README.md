@@ -2,6 +2,9 @@
 
 Question classifier gem that determines the type of question and the type of answer.
 
+| Classifier | Feature | Accuracy |
+| Naives Bayes | Unigram | 61.40% (**Very poor**) |
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,7 +26,7 @@ Or install it yourself as:
 ### Instantiating a classificer
 
     # Create classifier for the naive bayes implementation
-    ws = WatchaSay::Bayes.new
+    ws = WatchaSay::BayesClassifier.new
 
 ### Training the classifier
 
