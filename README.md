@@ -26,24 +26,33 @@ Or install it yourself as:
 
 ### Instantiating a classifier
 
-    # Create classifier for the naive bayes implementation
-    ws = WatchaSay::BayesClassifier.new
+```ruby
+# Create classifier for the naive bayes implementation
+ws = WatchaSay::BayesClassifier.new
+```
 
 ### Training the classifier
 
-    # Train the classifier by providing a `type` and `question`
-    # ws.train(type, question)
-    ws.train('DESC:manner', 'How did serfdom develop in and then leave Russia ?')
+```ruby
+# SINGLE QUESTION
+# Train the classifier by providing a `type` and `question`
+# ws.train(type, question)
+ws.train('DESC:manner', 'How did serfdom develop in and then leave Russia ?')
 
-    # Train the classifier by providing a formatted file
-    # each line of `file` has format 'type:subtype question'
-    # for example: 'LOC:state What sprawling U.S. state boasts the most airports ?'
-    ws.train('filename')
+# FILE OF QUESTIONS
+# Train the classifier by providing a formatted file
+# each line of `file` has format 'type:subtype question'
+# for example
+#   LOC:state What sprawling U.S. state boasts the most airports ?
+ws.train('filename')
+```
 
 ### Classify questions
 
-    # ws.classify(question)
-    ws.classify('What is titanium ?') # => DESC:def
+```ruby
+# ws.classify(question)
+ws.classify('What is titanium ?') # => DESC:def
+```
 
 ### Persistence
 
