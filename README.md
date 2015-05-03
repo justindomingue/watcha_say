@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-### Instantiating a classificer
+### Instantiating a classifier
 
     # Create classifier for the naive bayes implementation
     ws = WatchaSay::BayesClassifier.new
